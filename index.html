@@ -7,19 +7,25 @@
 </head>
 <body ng-app="ngClassifieds" ng-controller="ClassifiedsCtrl">
 
-<input type="text" placeholder = "Enter your name" ng-model="name">
-<h1>{{ name.last }} </h1>
-<h2>These are some of my angular notes</h2>
-Bower can be used for any front-end development to manage front-end assets (HTML, CSS & JS) - regardless of the technology used by the back-end. In other words, Bower can, and is, used with RoR, PHP, etc.
+<!--<input type="text" placeholder = "Enter your name" ng-model="name">-->
 
-NPM, on the other hand, is a package manager specific to the node.js back-end environment.
+<!--<h1>{{ name.last }} </h1>-->
+<!--<h2>These are some of my angular notes</h2>-->
+<!--Bower can be used for any front-end development to manage front-end assets (HTML, CSS & JS) - regardless of the technology used by the back-end. In other words, Bower can, and is, used with RoR, PHP, etc.-->
 
-If you are building a web app with node.js, then yes - Bower's functionality may seem superfluous. If, on the other hand, you are using PHP, RoR, J2EE, et al., it comes in very handy...
-<h2>Sources:</h2>
-<h4>https://www.quora.com/Why-use-Bower-when-there-is-npm</h4>
+<!--NPM, on the other hand, is a package manager specific to the node.js back-end environment.-->
 
-<script src="node_modules/angular/angular.min.js"></script>
+<!--If you are building a web app with node.js, then yes - Bower's functionality may seem superfluous. If, on the other hand, you are using PHP, RoR, J2EE, et al., it comes in very handy...-->
+<!--<h2>Sources:</h2>-->
+<!--<a href = "https://www.quora.com/Why-use-Bower-when-there-is-npm"> 1. https://www.quora.com/Why-use-Bower-when-there-is-npm </a>-->
+
+<script src="node_modules/angular/angular.js"></script>
 <script src="scripts/app.js"></script>
 <script src="components/classifieds.ctr.js"></script>
+<script src="node_modules/angular-animate/angular-animate.js"></script>
+<script src="node_modules/angular-aria/angular-aria.js"></script>
+<script src="node_modules/angular-material/angular-material.js"></script>
+
+<hello-world></hello-world>
 </body>
 </html>
