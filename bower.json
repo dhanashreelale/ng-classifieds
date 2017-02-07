@@ -1,0 +1,18 @@
+{
+  "name": "ng-classifieds",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Dhanashree Lale"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dhanashreelale/ng-classifieds",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
