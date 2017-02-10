@@ -25,14 +25,14 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
         <p><strong>ngClassifieds</strong></p>
-        <md-button> <md-icon class = "mdi mdi-plus-circle"></md-icon> New Classified </md-button>
+        <md-button ng-click="openSidebar()"> <md-icon class = "mdi mdi-plus-circle"></md-icon> New Item </md-button>
 
     </div>
 </md-toolbar>
 
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="true">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
     <md-toolbar>
-        <h1 class="md-toolbar-tools">Add item to Wishlist</h1>
+        <h1 class="md-toolbar-tools">Add item/s to Wishlist</h1>
     </md-toolbar>
     <md-content layout-padding>
         <form>
@@ -66,6 +66,7 @@
             <md-button ng-click="closeSidebar()" class="md-warn">
                 Cancel
             </md-button>
+            <pre>{{classified | json}}</pre>
         </form>
 
     </md-content>
