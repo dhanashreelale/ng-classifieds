@@ -103,5 +103,42 @@
     ],
     "image":"https://static.cargurus.com/images/site/2016/09/16/16/14/2017_jeep_cherokee-pic-2638568167346618145-640x480.jpeg",
     "views":423
+  },
+
+  {
+    "id":"7",
+    "title":"Swarovski Moselle Drop Pierced Earrings, palladium plating",
+    "description":"The distinctive shape of the Moselle bead gives the Moselle Drop Pierced Earrings their modern feel; and the shining hand-applied Swarovski crystals lend the pair a dazzling lustre.",
+    "price":250,
+    "posted":"2017-02-07",
+    "contact": {
+      "name":"John Doe",
+      "phone":"(555) 555-5555",
+      "email":"johndoe@gmail.com"
+    },
+    "categories":[
+      "Jewellery",
+      "Earrings"
+    ],
+    "image":"https://www.swarovski.com:443/is-bin/intershop.static/WFS/SCO-Media-Site/-/-/publicimages/CG/B2C/PROD/600/Swarovski-Moselle-Drop-Pierced-Earrings-palladium-plating-5298427-W600.jpg",
+    "views":423
+  },
+  {
+    "id":"8",
+    "title":"Audi S3",
+    "description":"Fancy Expensive Car.",
+    "price":45000,
+    "posted":"2017-02-07",
+    "contact": {
+      "name":"John Doe",
+      "phone":"(555) 555-5555",
+      "email":"johndoe@gmail.com"
+    },
+    "categories":[
+      "Vehicles",
+      "Cars"
+    ],
+    "image":"http://images.car.bauercdn.com/upload/30896/images/1752x1168/02audis3.jpg",
+    "views":423
   }
 ]

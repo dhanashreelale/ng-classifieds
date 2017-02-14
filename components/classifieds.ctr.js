@@ -2,35 +2,43 @@
     "use strict";
 
     angular
-        .module("ngClassifieds")
-        .controller("ClassifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
+        .module('ngClassifieds')
+        .controller("classifiedsController", function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
 
-            // $scope.name = {
-            //     first:  "Dhanashree",
-            //     last: "Kulkarni"
-            // };
+
+            classifiedsFactory.getClassifieds().then(function (remoteData) {
+                 $scope.classifieds = remoteData.data;
+                $scope.categories = getCategories($scope.classifieds);
+            });
+
             var contact = {
                 name: "Jane Doe",
                 phone: "555 555-5555",
                 email: "fakeemail@hotmail.com"
             };
 
-            classifiedsFactory.getClassifieds().then(function (remoteData) {
-                 $scope.classifieds = remoteData.data;
-                // console.log(data);
-            });
+            function showToast (message) {
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content(message)
+                        .position('top, right')
+                        .hideDelay(3000)
+                );
+            }
 
             $scope.openSidebar = function() {
+                $scope.sidebarTitle = 'Add an item';
                 $mdSidenav('left').open();
             };
 
             $scope.closeSidebar = function() {
+                $scope.classified = {};
                 $mdSidenav('left').close();
             };
 
             $scope.saveClassified = function (classified) {
                 if(classified){
-                    classified.contact = contact;
+                    $scope.classified.contact = contact;
                     $scope.classifieds.push(classified);
                     $scope.classified = {};
                     $scope.closeSidebar();
@@ -40,41 +48,44 @@
 
             $scope.editClassified = function (classified) {
                 $scope.editing = true;
-                $scope.openSidebar();
+                $scope.sidebarTitle = 'Edit Classified';
                 $scope.classified = classified;
+                $mdSidenav('left').open();
+
+            };
+
+            $scope.saveEdit = function() {
+                $scope.editing = false;
+                $scope.classified = {};
+                $mdSidenav('left').close();
+                showToast('Edit Saved');
             };
 
             $scope.deleteClassified = function (event, classified) {
                 var confirm = $mdDialog.confirm()
                     .title('Are you sure you want to delete this ' + classified.title +'? Its fancy')
                     .ok('Yes :(')
-                    .cancel('Noooo')
-                    .targetEvent(event);
-                $mdDialog.show(confirm).then(function () {
+                    .cancel('Noooo');
+                    $mdDialog.show(confirm).then(function() {
                     var index = $scope.classifieds.indexOf(classified);
                     $scope.classifieds.splice(index,1);
+                    showToast('Classified Deleted');
                 }, function () {
-                    
-            })
+                    $scope.status = classified.title + 'is still here';
+            });
             };
 
+            function getCategories (classifieds) {
+                var categories = [];
 
-            $scope.saveEdit = function() {
-                $scope.editing = false;
-                $scope.classified = {};
-                $scope.closeSidebar();
-                $scope.showToast("Edit Saved!");
-            };
-
-            $scope.showToast = function(message) {
-                $mdToast.show(
-                    $mdToast.simple()
-                        .content(message)
-                        .position('top, right')
-                        .hideDelay(3000)
-                )
+                angular.forEach(classifieds, function (ad) {
+                    angular.forEach(ad.categories, function(category){
+                       categories.push(category);
+                    });
+                });
+                return _.uniq(categories);
             }
 
-        })
 
+        });
 })();
