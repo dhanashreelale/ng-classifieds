@@ -59,7 +59,7 @@
     </md-input-container>
 
     <div layout="row">
-        <md-button ng-click="classifiedsFilter = '';category=''" class="md-warn">
+        <md-button ng-click="classifiedsFilter = ''; category=''" class="md-warn">
             Clear
         </md-button>
     </div>
@@ -108,10 +108,8 @@
 
 <md-content class="md-padding" layout="row" layout-wrap>
     <md-card ng-repeat = "classified in classifieds" |
-    filter: classifiedsFilter |
-    filter: category
-             flex="30"
-    class="classified">
+                          filter: classifiedsFilter |
+                          filter: category flex="30" class="classified">
         <img ng-src = "{{ classified.image }}" class="md-card-image">
         <md-card-content>
             <div class="classified-info" ng-show="!showContact" >
